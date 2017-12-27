@@ -3,8 +3,9 @@
 from __future__ import absolute_import, division, print_function
 from __future__ import unicode_literals
 from functools import wraps
+from sys import stdout
 import re
-import syslog
+import logging
 import time
 
 import botocore
@@ -14,6 +15,16 @@ import boto3
 __author__ = 'Allen Sanabria'
 __version__ = '1.0.2'
 
+# Setup logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s [%(process)s] [%(levelname)s] \
+[%(funcName)s] %(message)s')
+# Create console handler to write to console (stdout)
+ch = logging.StreamHandler(stdout)
+ch.setFormatter(formatter)
+ch.setLevel(logging.INFO)
+logger.addHandler(ch)
 
 class CloudRetry(object):
     """ CloudRetry can be used by any cloud provider, in order to implement a
@@ -78,7 +89,7 @@ class CloudRetry(object):
                                     "{0}: Retrying in {1} seconds..."
                                     .format(str(e), max_delay)
                                 )
-                                syslog.syslog(syslog.LOG_INFO, msg)
+                                logger.info(msg)
                                 time.sleep(max_delay)
                                 max_tries -= 1
                                 max_delay *= backoff
