@@ -27,7 +27,7 @@ Install awsretry.
 
 .. code-block:: sh
 
-  $ pip install awsretry
+  $ pip install git+https://github.com/vir2albulb/awsretry.git
 
 I will assume you know about setting up Boto3 Credentials, if not you can read
 the instructions here http://boto3.readthedocs.io/en/latest/guide/configuration.html
