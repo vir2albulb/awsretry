@@ -92,11 +92,11 @@ Development
 -----------
 Assuming that you have Python and ``virtualenv`` installed, set up your
 environment and install the required dependencies like this instead of
-the ``pip install awsretry`` defined above:
+the ``pip install git+https://github.com/vir2albulb/awsretry.git`` defined above:
 
 .. code-block:: sh
 
-    $ git clone https://github.com/linuxdynasty/awsretry.git
+    $ git clone https://github.com/vir2albulb/awsretry.git
     $ cd awsretry
     $ virtualenv venv
     ...
