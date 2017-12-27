@@ -11,7 +11,7 @@ setup(
     description='Decorate your AWS Boto3 Calls with AWSRetry.backoff(). This will allows your calls to get around the AWS Eventual Consistency Errors.',
     long_description=open('README.rst').read(),
 
-    url='https://github.com/linuxdynasty/awsretry',
+    url='https://github.com/vir2albulb/awsretry.git',
     packages=find_packages(exclude=['tests*']),
 
     author='Allen Sanabria',
